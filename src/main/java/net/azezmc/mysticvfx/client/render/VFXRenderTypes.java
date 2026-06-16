@@ -19,10 +19,10 @@ public class VFXRenderTypes extends RenderLayer {
             true,
             RenderLayer.MultiPhaseParameters.builder()
                     .program(RenderPhase.TRANSLUCENT_PROGRAM)
-                    .transparency(RenderPhase.ADDITIVE_TRANSPARENCY) // Cộng dồn màu tạo độ chói
-                    .writeMaskState(RenderPhase.COLOR_MASK) // Vô hiệu hóa Depth write tránh lấp lẫn nhau
+                    .transparency(RenderPhase.ADDITIVE_TRANSPARENCY)
+                    .writeMaskState(RenderPhase.COLOR_MASK)
                     .cull(RenderPhase.DISABLE_CULLING)
-                    .lightmap(RenderPhase.DISABLE_LIGHTMAP) // Bỏ qua ánh sáng game
+                    .lightmap(RenderPhase.DISABLE_LIGHTMAP)
                     .build(false)
     );
 }
