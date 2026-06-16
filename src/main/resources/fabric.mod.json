@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "mystic-vfx",
+	"version": "${version}",
+	"name": "Mystic VFX",
+	"description": "Mod tạo các VFX ảo diệu cho Minecraft",
+	"authors": [
+		"AzezMC!"
+	],
+	"contact": {
+		"sources": "https://github.com/AzezMC/MysticVFX",
+		"discord": "https://discord.com/invite/JJ3m4XAdSd"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.discord": "https://discord.com/invite/JJ3m4XAdSd"
+			}
+		}
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/mystic-vfx/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.azezmc.mysticvfx.MysticVFX"
+		],
+		"client": [
+			"net.azezmc.mysticvfx.MysticVFXModClient"
+		],
+		"fabric-datagen": [
+			"net.azezmc.mysticvfx.MysticVFXDataGenerator"
+		]
+	},
+	"mixins": [
+		"mystic-vfx.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}

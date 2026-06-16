@@ -1,0 +1,28 @@
+package net.azezmc.mysticvfx.client.render;
+
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.RenderPhase;
+import net.minecraft.client.render.VertexFormat;
+import net.minecraft.client.render.VertexFormats;
+
+public class VFXRenderTypes extends RenderLayer {
+    public VFXRenderTypes(String name, VertexFormat vertexFormat, VertexFormat.DrawMode drawMode, int expectedBufferSize, boolean hasCrumbling, boolean translucent, Runnable startAction, Runnable endAction) {
+        super(name, vertexFormat, drawMode, expectedBufferSize, hasCrumbling, translucent, startAction, endAction);
+    }
+
+    public static final RenderLayer ADDITIVE_GLOW = RenderLayer.of(
+            "mysticvfx_additive_glow",
+            VertexFormats.POSITION_COLOR_TEXTURE_LIGHT,
+            VertexFormat.DrawMode.QUADS,
+            256,
+            false,
+            true,
+            RenderLayer.MultiPhaseParameters.builder()
+                    .program(RenderPhase.TRANSLUCENT_PROGRAM)
+                    .transparency(RenderPhase.ADDITIVE_TRANSPARENCY) // Cộng dồn màu tạo độ chói
+                    .writeMaskState(RenderPhase.COLOR_MASK) // Vô hiệu hóa Depth write tránh lấp lẫn nhau
+                    .cull(RenderPhase.DISABLE_CULLING)
+                    .lightmap(RenderPhase.DISABLE_LIGHTMAP) // Bỏ qua ánh sáng game
+                    .build(false)
+    );
+}
